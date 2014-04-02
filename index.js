@@ -3,7 +3,7 @@ var createSourceMapLocatorPreprocessor = function(args, logger, helper) {
   var log = logger.create('preprocessor.sourcemap');
 
   return function(content, file, done) {
-    var mapPath = file.path+".map";
+    var mapPath = file.path.slice(0,-3)+".map";
     fs.exists(mapPath, function(exists) {
       if (!exists) {
         done(content);
